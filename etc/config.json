@@ -1,0 +1,10 @@
+{
+	"total_node": 8,
+	"min_cost": 1,
+	"max_cost": 4,
+	"multicast_group": 5,
+	"min_destination": 5,
+	"max_destination": 8,
+	"min_h": 1,
+	"max_h": 3
+}
