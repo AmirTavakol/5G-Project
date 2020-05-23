@@ -3,6 +3,9 @@
 import json
 import logging
 import numpy as np
+import networkx as nx
+from simulator.Matrix_Definition import Graph_Generation
+from simulator.group_generator import GP_generator
 from simulator.instance import Instance
 from solver.simpleKnapsack import SimpleKnapsack
 from heuristic.simpleHeu import SimpleHeu
@@ -12,24 +15,45 @@ np.random.seed(0)
 
 
 if __name__ == '__main__':
-    log_name = "./logs/main.log"
-    logging.basicConfig(
-        filename=log_name,
-        format='%(asctime)s %(levelname)s: %(message)s',
-        level=logging.INFO, datefmt="%H:%M:%S",
-        filemode='w'
-    )
+    # log_name = "./logs/main.log"
+    # logging.basicConfig(
+    #     filename=log_name,
+    #     format='%(asctime)s %(levelname)s: %(message)s',
+    #     level=logging.INFO, datefmt="%H:%M:%S",
+    #     filemode='w'
+    # )
+    
+    
+    #graph G generation
+    G = nx.Graph()
+    #graph G configuration
+    Graph_Generation_run = Graph_Generation(G)
+    Graph_Generation_run.Node_Generator()
+    Graph_Generation_run.Edge_Generator()
+    Graph_Generation_run.Real_Matrix()
+    Graph_Generation_run.Cost_Assignment()
+    # to see raw graph uncomment below line
+    # Graph_Generation_run.plot()
+    
+    #group generator
+    #takes configured graph G as input 
+    gp1 = GP_generator(G)
+    gp1.source_selector()
+    gp1.destination_selector()
+    gp1.plot()
+    
+    
 
-    fp = open("./etc/config.json", 'r')
-    sim_setting = json.load(fp)
-    fp.close()
-    print(sim_setting['total_node'])
+    # fp = open("./etc/config.json", 'r')
+    # sim_setting = json.load(fp)
+    # fp.close()
+    # print(sim_setting['total_node'])
 
-    inst = Instance(
-        sim_setting
-    )
-    dict_data = inst.get_data()
-    print(dict_data)
+    # inst = Instance(
+    #     sim_setting
+    # )
+    # dict_data = inst.get_data()
+    # print(dict_data)
     # prb = SimpleKnapsack()
     # of_exact, sol_exact, comp_time_exact = prb.solve(
     #     dict_data,
