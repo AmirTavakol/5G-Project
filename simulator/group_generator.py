@@ -21,7 +21,7 @@ class GP_generator(object):
     #chooses random destinations
     def destination_selector(self):
         #getting number of destinations from user
-        self.n_dest= sim_setting['min_destination']
+        self.n_dest= sim_setting['num_destination']
         self.destinations = []
         self.available_nodes =list(self.g.nodes)
         self.available_nodes.remove(self.source)#remaining nodes after having removed the source
@@ -32,8 +32,11 @@ class GP_generator(object):
             self.destinations.append(self.dest)
             self.available_nodes.remove(self.dest)
             self.g.nodes[self.dest]['label'] = "destination"
+            
         print('destinations:', end=' ')
         print(*self.destinations,sep=",")
+        return self.destinations
+
     
     #plot graph with source and destination
     def plot(self):

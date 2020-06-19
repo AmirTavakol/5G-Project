@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['C:\\Users\\Amir_Sakaki\\.spyder-py3\\temp.py', 'main.py', 'etc\\config.json', 'simulator\\Matrix_Definition.py', 'simulator\\group_generator.py', 'simulator\\instance.py', 'get_pos_attr.py']
+recent_files = ['main.py', 'solver\\MultiCast.py', 'C:\\users\\amir_sakaki\\.spyder-py3\\temp.py', 'logs\\MultiCast.lp', 'simulator\\Matrix_Definition.py', 'simulator\\group_generator.py', 'logs\\main.log', 'test.py', 'simulator\\instance.py', 'etc\\config.json']
 

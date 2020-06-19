@@ -12,7 +12,7 @@ sim_setting = json.load(fp)
 class Graph_Generation(object):
     def __init__(self,g):
         self.g = g
-        # np.random.seed(5)
+        
         pass
         
 
@@ -32,14 +32,17 @@ class Graph_Generation(object):
     # random edge generation
     def Edge_Generator(self):
         for j in (range(sim_setting["total_node"])):
+            # while (len(self.g.in_edges(j)) and len(self.g.out_edges(j))) <= 1:
             while (self.g.degree(j) <= 1):
                 c1 = np.random.choice(self.g.nodes())
                 c2 = np.random.choice(self.g.nodes())
                 if c1 != c2 and self.g.has_edge(c1, c2) == 0:
                     self.g.add_edge(c1, c2)
+                
 
     # graph matrix generation
     def Real_Matrix(self):
+        # np.random.seed(0)
         self.costs = []
         for i in range(self.g.size()):
             self.costs.append(random.randint(
@@ -52,6 +55,7 @@ class Graph_Generation(object):
                 if self.g.has_edge(i, j):
                     self.nodes_matrix[i][j] = 1
         self.nodes_matrix_triu = np.triu(self.nodes_matrix, k=0)
+        # return self.nodes_matrix
         # print(nodes_matrix_triu)
     
     # random cost assignment to the edges
@@ -66,6 +70,7 @@ class Graph_Generation(object):
         for i in range(self.g.order()):
             for j in range(self.g.order()):
                 self.nodes_matrix[j][i] = self.nodes_matrix[i][j]
+        return self.nodes_matrix
                 
     # raw graph plot           
     def plot(self):
