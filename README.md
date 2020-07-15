@@ -29,7 +29,7 @@ The exact method to solve the problem is implemented in python using *pulp* libr
 
 
 ## Heuristic method
-for heuristic part, we took benefits of Dijakstra's Algortihm. It is for an individual source to one destination so it is not desirable for multicast, yet, by going through 5 steps it becomes suitable for multicast cases. The mentioned algorithm that has been used in our project is based on “Network X”.
+for heuristic part, we took benefits of Dijkstra's Algortihm. It is for an individual source to one destination so it is not desirable for multicast, yet, by going through 5 steps it becomes suitable for multicast cases. The mentioned algorithm that has been used in our project is based on “Network X”.
 
 1. The first thing it does is to select a group-based node, in other words, choosing a starting node and assign infinity path values to all other nodes.
 2. The next step is to find all paths for each source to each destination independently. (Go to each vertex and update its path length)
