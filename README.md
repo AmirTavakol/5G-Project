@@ -34,9 +34,11 @@ for heuristic part, we took benefits of Dijkstra's Algortihm. It is for an indiv
 1. The first thing it does is to select a group-based node, in other words, choosing a starting node and assign infinity path values to all other nodes.
 2. The next step is to find all paths for each source to each destination independently. (Go to each vertex and update its path length)
 3. Then, if the path length (cost) of the adjacent vertex is lesser than new path length, don't update it, or if there are any paths containing other destinations as intermediate nodes, simply eliminate them.
-*Avoid updating path lengths of already visited vertices.
-*After each iteration, we pick the unvisited vertex with the least path cost.
-*Repeat until all the vertices have been visited.
+
+-Avoid updating path lengths of already visited vertices.
+-After each iteration, we pick the unvisited vertex with the least path cost.
+-Repeat until all the vertices have been visited.
+
 4. As a result of above iterative steps, return cost of the shortest path.
 5. Eventually, sum all heuristic minimum costs.
 
